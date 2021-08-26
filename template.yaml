@@ -1,0 +1,20 @@
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  IndexHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: Hello.handler
+      CodeUri: build
+      Runtime: nodejs14.x
+      Events:
+        ApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /hello
+            Method: POST
+Outputs:
+  ApiGatewayURL:
+    Value: !GetAtt ServerlessHttpApi.ApiEndpoint
+    Export:
+      Name: !Sub "${AWS::StackName}-url"

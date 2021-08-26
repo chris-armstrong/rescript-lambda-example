@@ -1,0 +1,8 @@
+{
+  "name": "rescript-lambda-example",
+  "sources": { "dir": "src" },
+  "dependencies": ["reason-nodejs"],
+  "package-specs": {
+    "module": "es6-global"
+  }
+}
